@@ -1,5 +1,6 @@
 import streamlit as st
 import openai
+import pyperclip
 
 openai.api_key = st.secrets["api_key"]
 st.title("The Rizzler")
@@ -23,3 +24,7 @@ pickup_line = completions.choices[0].text
 
 st.write("Here is your pickup line:")
 st.write(pickup_line)
+
+if st.button('Copy to clipboard'):
+    pyperclip.copy(pickup_line)
+    st.success('Copied to clipboard')
