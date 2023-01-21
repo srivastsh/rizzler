@@ -1,6 +1,5 @@
 import streamlit as st
 import openai
-import pyperclip
 
 openai.api_key = st.secrets["api_key"]
 st.title("The Rizzler")
@@ -11,7 +10,7 @@ fact = st.text_input("What's a fact about them?:")
 gender = st.selectbox("What's their gender:", ["Male", "Female"])
 option = st.selectbox("What kind of pickup line are you looking for?:", ["Clever", "Humorous", "Forward", "Cheesy", "Cute"])
 
-prompt = (f"generate a {option} pickup line for someone named {name} who is {gender}. a fact about them is  {fact}. ")
+prompt = ("generate a {option} pickup line for someone named {name} who is {gender}. a fact about them is  {fact}.")
 completions = openai.Completion.create(
     engine="text-davinci-003",
     prompt=prompt,
@@ -24,7 +23,4 @@ pickup_line = completions.choices[0].text
 
 st.write("Here is your pickup line:")
 st.write(pickup_line)
-
-if st.button('Copy to clipboard'):
-    pyperclip.copy(pickup_line)
-    st.success('Copied to clipboard')
+st.clipboard.set(pickup_line)
