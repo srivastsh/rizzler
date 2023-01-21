@@ -9,8 +9,14 @@ name = st.text_input("What's their name?:")
 fact = st.text_input("What's a fact about them?:")
 gender = st.selectbox("What's their gender:", ["Male", "Female"])
 option = st.selectbox("What kind of pickup line are you looking for?:", ["Clever", "Humorous", "Forward", "Cheesy", "Cute"])
+is_dating_app = st.checkbox("Is this for a dating app?")
 
-prompt = (f"generate a {option} pickup line for someone named {name} who is {gender}. A fact about them is  {fact}. This line is intended to be used in a dating app.")
+if is_dating_app:
+    context = "This line is intended to be used in a dating app."
+else:
+    context = ""
+
+prompt = (f"generate a {option} pickup line for someone named {name} who is {gender}. A fact about them is  {fact}. {context}")
 
 completions = openai.Completion.create(
     engine="text-davinci-003",
