@@ -23,4 +23,4 @@ pickup_line = completions.choices[0].text
 
 st.write("Here is your pickup line:")
 st.write(pickup_line)
-st.clipboard.set(pickup_line)
+pickup_line_text = st.text_area(pickup_line)
