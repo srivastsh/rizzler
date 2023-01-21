@@ -10,7 +10,7 @@ fact = st.text_input("What's a fact about them?:")
 gender = st.selectbox("What's their gender:", ["Male", "Female"])
 option = st.selectbox("What kind of pickup line are you looking for?:", ["Clever", "Humorous", "Forward", "Cheesy", "Cute"])
 
-prompt = ("generate a {option} pickup line for someone named {name} who is {gender}. a fact about them is  {fact}.")
+prompt = (f"generate a {option} pickup line for someone named {name} who is {gender}. a fact about them is  {fact}.")
 completions = openai.Completion.create(
     engine="text-davinci-003",
     prompt=prompt,
