@@ -24,7 +24,7 @@ completions = openai.Completion.create(
     max_tokens=1024,
     n=1,
     stop=None,
-    temperature=0.2,
+    temperature=0.7,
 )
 pickup_line = completions.choices[0].text
 
