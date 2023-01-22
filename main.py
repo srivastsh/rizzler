@@ -16,7 +16,7 @@ if is_dating_app:
 else:
     context = ""
 
-prompt = (f"generate a {option} pickup line for someone named {name} who is {gender}. A fact about them is  {fact}. {context}")
+prompt = f"generate a {option} pickup line for someone named {name} who is {gender}. A fact about them is  {fact}. {context}"
 
 completions = openai.Completion.create(
     engine="text-davinci-003",
