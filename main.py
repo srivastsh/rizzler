@@ -8,7 +8,7 @@ st.write("Welcome to The Rizzler, a pickup line generator using OpenAI's API")
 name = st.text_input("What's their name?:")
 fact = st.text_input("What's a fact about them?:")
 gender = st.selectbox("What's their gender:", ["Male", "Female"])
-option = st.selectbox("What kind of pickup line are you looking for?:", ["Clever", "Humorous", "Forward", "Cheesy", "Cute"])
+option = st.selectbox("What kind of pickup line are you looking for?:", ["Clever", "Humorous", "Forward", "Cheesy", "Cute", "Punny"])
 is_dating_app = st.checkbox("Is this for a dating app?")
 
 if is_dating_app:
